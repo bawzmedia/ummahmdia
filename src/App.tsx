@@ -1128,9 +1128,10 @@ const Footer = ({ setPage }: { setPage: (p: string) => void }) => (
       </div>
       <span style={{
         fontFamily: "'Amiri', serif",
-        fontSize: "14px", color: "rgba(201,169,97,0.4)",
+        fontSize: "18px", color: "#9E8345",
+        width: "100%", textAlign: "center", display: "block",
       }}>
-        بسم الله الرحمن الرحيم
+        الحمد لله رب العالمين
       </span>
     </div>
   </footer>
