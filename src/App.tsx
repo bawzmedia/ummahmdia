@@ -1077,6 +1077,31 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [page]);
 
+  useEffect(() => {
+    const blockContextMenu = (e: MouseEvent) => e.preventDefault();
+    const blockKeys = (e: KeyboardEvent) => {
+      if (
+        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
+        (e.ctrlKey && e.key === "u") ||
+        (e.metaKey && e.altKey && (e.key === "i" || e.key === "j" || e.key === "c")) ||
+        (e.metaKey && e.key === "u") ||
+        e.key === "F12"
+      ) {
+        e.preventDefault();
+      }
+    };
+    const blockDrag = (e: DragEvent) => e.preventDefault();
+
+    document.addEventListener("contextmenu", blockContextMenu);
+    document.addEventListener("keydown", blockKeys);
+    document.addEventListener("dragstart", blockDrag);
+    return () => {
+      document.removeEventListener("contextmenu", blockContextMenu);
+      document.removeEventListener("keydown", blockKeys);
+      document.removeEventListener("dragstart", blockDrag);
+    };
+  }, []);
+
   return (
     <div style={{ background: C.lightCream, minHeight: "100vh", color: C.textDark }}>
       <style>{`
@@ -1087,7 +1112,9 @@ export default function App() {
         ::selection { background: rgba(201,169,97,0.3); color: #2C3E37; }
         input, textarea { font-size: 16px !important; }
         input:focus, textarea:focus { border-color: #C9A961 !important; }
-        img { max-width: 100%; height: auto; }
+        img { max-width: 100%; height: auto; -webkit-user-drag: none; user-select: none; pointer-events: none; }
+        body { -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+        input, textarea { -webkit-user-select: text; -moz-user-select: text; user-select: text; pointer-events: auto; }
         button { -webkit-tap-highlight-color: transparent; }
 
         @keyframes shimmer {
