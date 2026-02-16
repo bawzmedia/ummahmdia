@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { C, LOGO_URL, R, BigText, Sub, Tag, Line, CTA, VideoBlock, ImgBlock, Grain } from "./shared";
 import BrandDevelopment from "./pages/BrandDevelopment";
 import VideoMarketing from "./pages/VideoMarketing";
 import UGC from "./pages/UGC";
 import AIEducation from "./pages/AIEducation";
+
+const PartnerGlobe = lazy(() => import("./components/PartnerGlobe"));
 
 // ─── Nav ───
 const Nav = ({ page, setPage }: { page: string; setPage: (p: string) => void }) => {
@@ -591,6 +593,69 @@ const About = ({ setPage }: { setPage: (p: string) => void }) => (
       </div>
     </section>
 
+    {/* ── PARTNER GLOBE ── */}
+    <section style={{ background: C.lightCream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <R>
+          <Tag>Our Global Network</Tag>
+          <BigText size="clamp(32px, 6vw, 72px)" style={{ marginBottom: "12px" }}>
+            PARTNERS ACROSS THE <span style={{ color: C.gold }}>UMMAH</span>
+          </BigText>
+        </R>
+        <R delay={0.1}>
+          <Sub style={{ marginBottom: "48px" }}>
+            We work with talented Muslims around the world. Our network spans continents — united by purpose, connected by faith.
+          </Sub>
+        </R>
+        <R delay={0.2}>
+          <Suspense fallback={
+            <div style={{
+              width: "100%", height: "500px",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <span style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "14px", color: C.textLight, letterSpacing: "2px",
+              }}>
+                LOADING GLOBE...
+              </span>
+            </div>
+          }>
+            <PartnerGlobe />
+          </Suspense>
+        </R>
+        <R delay={0.3}>
+          <div style={{
+            display: "flex", justifyContent: "center", gap: "40px",
+            flexWrap: "wrap", marginTop: "40px",
+          }}>
+            {[
+              { city: "Edmonton", country: "Canada" },
+              { city: "Lahore", country: "Pakistan" },
+            ].map((p, i) => (
+              <div key={i} style={{ textAlign: "center" }}>
+                <span style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontSize: "24px", letterSpacing: "2px",
+                  color: C.gold, display: "block",
+                }}>
+                  {p.city}
+                </span>
+                <span style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "12px", letterSpacing: "1.5px",
+                  color: C.textLight, textTransform: "uppercase",
+                }}>
+                  {p.country}
+                </span>
+              </div>
+            ))}
+          </div>
+        </R>
+      </div>
+    </section>
+
+    {/* ── SERVING THE UMMAH ── */}
     <section style={{ background: C.cream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <div className="grid-split">
