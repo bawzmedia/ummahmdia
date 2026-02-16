@@ -81,7 +81,7 @@ const Nav = ({ page, setPage }: { page: string; setPage: (p: string) => void }) 
       }}>
         {/* Left — Logo + UMMAH MEDIA */}
         <div onClick={() => go("home")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: "10px", minWidth: "180px" }}>
-          <img src="/ummah-media-logo-v2.png" alt="Ummah Media" style={{
+          <img src="/ummah-media-logo-v2.png" alt="Ummah Media" className="nav-logo" style={{
             height: "36px", width: "36px", objectFit: "contain",
           }} />
           <span style={{
@@ -346,23 +346,27 @@ const Home = ({ setPage }: { setPage: (p: string) => void }) => (
         animation: "shimmer 8s ease infinite",
       }} />
 
-      <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 20px" }}>
+      <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 20px", maxWidth: "900px" }}>
         <R>
-          <img src={LOGO_URL} alt="" style={{
-            height: "clamp(60px, 15vw, 80px)", width: "clamp(60px, 15vw, 80px)", objectFit: "contain",
-            margin: "0 auto 24px", display: "block",
-            filter: "drop-shadow(0 0 60px rgba(201,169,97,0.25))",
-          }} />
-        </R>
-        <R delay={0.2}>
-          <BigText size="clamp(44px, 12vw, 140px)">
-            CRAFTING<br />
-            <span style={{ color: C.gold }}>MUSLIM</span><br />
-            EXCELLENCE
+          <BigText size="clamp(36px, 9vw, 100px)" style={{ marginBottom: "0", lineHeight: 1 }}>
+            CRAFTING
           </BigText>
         </R>
-        <R delay={0.4}>
-          <div style={{ margin: "28px auto 0", display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+        <R delay={0.15}>
+          <img src={LOGO_URL} alt="Ummah Media" style={{
+            height: "clamp(140px, 30vw, 260px)", width: "clamp(140px, 30vw, 260px)", objectFit: "contain",
+            margin: "20px auto",
+            display: "block",
+            filter: "drop-shadow(0 0 80px rgba(201,169,97,0.3))",
+          }} />
+        </R>
+        <R delay={0.3}>
+          <BigText size="clamp(36px, 9vw, 100px)" style={{ lineHeight: 1 }}>
+            <span style={{ color: C.gold }}>MUSLIM</span> EXCELLENCE
+          </BigText>
+        </R>
+        <R delay={0.45}>
+          <div style={{ margin: "32px auto 0", display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <CTA onClick={() => setPage("contact")}>START A PROJECT</CTA>
             <CTA onClick={() => setPage("work")} outline>SEE OUR WORK</CTA>
           </div>
@@ -1114,6 +1118,7 @@ export default function App() {
           .grid-cards-sm { grid-template-columns: 1fr !important; }
           .grid-events { grid-template-columns: 1fr !important; }
           .grid-choices { grid-template-columns: 1fr !important; }
+          .nav-logo { height: 44px !important; width: 44px !important; }
           .mob-pad { padding-left: 16px !important; padding-right: 16px !important; }
         }
         @media (min-width: 769px) {
