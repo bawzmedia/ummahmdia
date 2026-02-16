@@ -81,12 +81,12 @@ const Nav = ({ page, setPage }: { page: string; setPage: (p: string) => void }) 
         maxWidth: "1400px", margin: "0 auto", padding: "0 32px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
       }}>
-        {/* Left — Logo + UMMAH MEDIA */}
-        <div onClick={() => go("home")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: "10px", minWidth: "180px" }}>
+        {/* Left — Logo + UMMAH MEDIA (desktop: row, mobile: column) */}
+        <div onClick={() => go("home")} className="nav-brand" style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: "10px", minWidth: "180px" }}>
           <img src="/ummah-media-logo-v2.png" alt="Ummah Media" className="nav-logo" style={{
             height: "36px", width: "36px", objectFit: "contain",
           }} />
-          <span style={{
+          <span className="nav-brand-text" style={{
             fontFamily: "'Bebas Neue', sans-serif",
             fontSize: "18px",
             letterSpacing: "3px",
@@ -96,8 +96,8 @@ const Nav = ({ page, setPage }: { page: string; setPage: (p: string) => void }) 
           </span>
         </div>
 
-        {/* Center — Bismillah */}
-        <div className="dsk-bismillah" style={{
+        {/* Center — Bismillah (desktop: center, mobile: center below brand) */}
+        <div className="nav-bismillah" style={{
           position: "absolute", left: "50%", transform: "translateX(-50%)",
           pointerEvents: "none",
         }}>
@@ -1205,8 +1205,8 @@ export default function App() {
 
         @media (max-width: 768px) {
           .dsk-nav { display: none !important; }
-          .dsk-bismillah { display: none !important; }
           .mob-btn { display: block !important; }
+          .dsk-nav { display: none !important; }
           .grid-2-1, .grid-1-2, .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
           .grid-split { grid-template-columns: 1fr !important; gap: 32px !important; }
           .grid-services { grid-template-columns: 1fr !important; }
@@ -1214,8 +1214,12 @@ export default function App() {
           .grid-cards-sm { grid-template-columns: 1fr !important; }
           .grid-events { grid-template-columns: 1fr !important; }
           .grid-choices { grid-template-columns: 1fr !important; }
-          .nav-logo { height: 44px !important; width: 44px !important; }
           .mob-pad { padding-left: 16px !important; padding-right: 16px !important; }
+          .nav-logo { height: 44px !important; width: 44px !important; }
+          .nav-brand { flex-direction: column !important; gap: 2px !important; min-width: auto !important; align-items: center !important; }
+          .nav-brand-text { font-size: 11px !important; letter-spacing: 2px !important; }
+          .nav-bismillah { position: static !important; transform: none !important; text-align: center !important; flex: 1 !important; }
+          .nav-bismillah span { font-size: 14px !important; }
         }
         @media (min-width: 769px) {
           .mob-menu { display: none !important; }
