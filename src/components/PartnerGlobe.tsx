@@ -14,12 +14,10 @@ export const PARTNERS = [
 // ─── Palette ───
 const COLORS = {
   land: "#1A5E51",
-  landStroke: "rgba(201,169,97,0.25)",
   water: "#FAF8F3",
   atmosphere: "#C9A961",
   marker: "#FFD475",
-  markerGlow: "rgba(255,212,117,0.6)",
-  ring: (t: number) => `rgba(255,212,117,${1 - t})`,
+  ring: (t: number) => `rgba(255,212,117,${Math.max(0, 1 - t * 1.1)})`,
 };
 
 const globeMat = new MeshPhongMaterial({
@@ -27,6 +25,10 @@ const globeMat = new MeshPhongMaterial({
   transparent: false,
   flatShading: false,
 });
+
+// Filter out Greenland (ISO 304) to prevent jitter
+const filterPolygons = (features: any[]) =>
+  features.filter((f: any) => f.id !== "304" && f.properties?.name !== "Greenland");
 
 const PartnerGlobe = () => {
   const globeRef = useRef<any>(null);
@@ -40,7 +42,7 @@ const PartnerGlobe = () => {
       .then((r) => r.json())
       .then((topo) => {
         const geo = feature(topo, topo.objects.countries) as any;
-        setPolygons(geo.features);
+        setPolygons(filterPolygons(geo.features));
       });
   }, []);
 
@@ -64,22 +66,22 @@ const PartnerGlobe = () => {
     globeRef.current.pointOfView({ lat: 30, lng: 50, altitude: 2.2 }, 0);
   }, [polygons]);
 
-  const points = PARTNERS.map((p) => ({
+  const labels = PARTNERS.map((p) => ({
     ...p,
     id: p.city,
-    label: `${p.city}, ${p.country}`,
+    text: `${p.city}, ${p.country}`,
   }));
 
   const rings = PARTNERS.map((p) => ({
     lat: p.lat,
     lng: p.lng,
-    maxR: 5,
-    propagationSpeed: 1.2,
-    repeatPeriod: 1800,
+    maxR: 6,
+    propagationSpeed: 1,
+    repeatPeriod: 2000,
   }));
 
-  const handlePointHover = useCallback((point: any) => {
-    setHovered(point ? point.id : null);
+  const handleLabelHover = useCallback((label: any) => {
+    setHovered(label ? label.id : null);
   }, []);
 
   return (
@@ -102,35 +104,30 @@ const PartnerGlobe = () => {
         globeMaterial={globeMat}
         atmosphereColor={COLORS.atmosphere}
         atmosphereAltitude={0.18}
-        // Countries — no stroke to fix jitter, use slightly different cap shading
+        // Countries — no stroke lines to eliminate all jitter
         polygonsData={polygons}
         polygonCapColor={() => COLORS.land}
-        polygonSideColor={() => "rgba(26,94,81,0.08)"}
-        polygonStrokeColor={() => COLORS.landStroke}
-        polygonAltitude={0.004}
-        // Bright gold marker points — elevated above land
-        pointsData={points}
-        pointColor={() => COLORS.marker}
-        pointAltitude={(d: any) => hovered === d.id ? 0.12 : 0.08}
-        pointRadius={(d: any) => hovered === d.id ? 0.7 : 0.5}
-        pointsMerge={false}
-        onPointHover={handlePointHover}
-        // Labels — only show on hover
-        labelsData={points}
+        polygonSideColor={() => "rgba(26,94,81,0.06)"}
+        polygonStrokeColor={() => "rgba(0,0,0,0)"}
+        polygonAltitude={0.003}
+        // City labels — always visible, grow on hover
+        labelsData={labels}
         labelLat={(d: any) => d.lat}
         labelLng={(d: any) => d.lng}
-        labelText={(d: any) => d.label}
-        labelSize={(d: any) => hovered === d.id ? 1.8 : 0}
-        labelDotRadius={(d: any) => hovered === d.id ? 0.5 : 0}
+        labelText={(d: any) => d.text}
+        labelSize={(d: any) => hovered === d.id ? 2.2 : 1.4}
+        labelDotRadius={(d: any) => hovered === d.id ? 0.6 : 0.35}
         labelColor={() => COLORS.marker}
-        labelAltitude={0.12}
+        labelAltitude={(d: any) => hovered === d.id ? 0.15 : 0.06}
         labelResolution={2}
-        // Radar pulse rings
+        onLabelHover={handleLabelHover}
+        // Thick radar pulse rings — elevated above globe surface
         ringsData={rings}
         ringColor={() => COLORS.ring}
-        ringMaxRadius={5}
-        ringPropagationSpeed={1.2}
-        ringRepeatPeriod={1800}
+        ringMaxRadius={6}
+        ringPropagationSpeed={1}
+        ringRepeatPeriod={2000}
+        ringAltitude={0.015}
         animateIn={true}
       />
     </div>
