@@ -633,7 +633,7 @@ const About = ({ setPage }: { setPage: (p: string) => void }) => (
               { city: "Edmonton", country: "Canada" },
               { city: "Red Deer", country: "Canada" },
               { city: "Halifax", country: "Canada" },
-              { city: "Lahore", country: "Pakistan" },
+              { city: "Gujranwala", country: "Pakistan" },
             ].map((p, i) => (
               <div key={i} style={{ textAlign: "center" }}>
                 <span style={{
