@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-const AIRTABLE_TABLE = process.env.AIRTABLE_TABLE || "Ummah Media Leads";
+const AIRTABLE_TABLE = process.env.AIRTABLE_TABLE || "Submissions";
 
 const SERVICE_MAP: Record<string, string> = {
   brand: "Brand Development",
@@ -24,9 +24,9 @@ const TIMELINE_MAP: Record<string, string> = {
 };
 
 const BUDGET_MAP: Record<string, string> = {
-  "500-2k": "$500 - $2K",
-  "2k-5k": "$2K - $5K",
-  "5k-15k": "$5K - $15K",
+  "500-2k": "$500-2K",
+  "2k-5k": "$2K-5K",
+  "5k-15k": "$5K-15K",
   "15k+": "$15K+",
 };
 
