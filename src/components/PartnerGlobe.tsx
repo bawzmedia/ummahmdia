@@ -20,7 +20,6 @@ const COLORS = {
 
 const globeMat = new MeshBasicMaterial({
   color: COLORS.water,
-  depthWrite: false,
 });
 
 const filterPolygons = (features: any[]) =>
@@ -183,7 +182,7 @@ const PartnerGlobe = () => {
         polygonCapColor={() => COLORS.land}
         polygonSideColor={() => COLORS.land}
         polygonStrokeColor={() => "rgba(0,0,0,0)"}
-        polygonAltitude={0.012}
+        polygonAltitude={0.02}
         htmlElementsData={htmlData}
         htmlLat={(d: any) => d.lat}
         htmlLng={(d: any) => d.lng}
