@@ -71,7 +71,7 @@ const Nav = ({ page, setPage }: { page: string; setPage: (p: string) => void }) 
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
       background: scrolled ? "rgba(250,248,243,0.95)" : "transparent",
       backdropFilter: scrolled ? "blur(16px)" : "none",
-      transition: "all 0.4s ease",
+      transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
       padding: scrolled ? "10px 0" : "18px 0",
       borderBottom: scrolled ? `1px solid ${C.goldDim}` : "none",
     }}>
@@ -272,9 +272,10 @@ const ServiceTile = ({ title, sub, onClick }: { title: string; sub: string; onCl
         justifyContent: "flex-end",
         padding: "32px",
         cursor: "pointer",
-        transition: "all 0.4s ease",
+        transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
         overflow: "hidden",
-        boxShadow: h ? "0 12px 30px rgba(201,169,97,0.15)" : "none",
+        boxShadow: h ? "0 16px 40px rgba(201,169,97,0.18)" : "0 2px 10px rgba(0,0,0,0.03)",
+        transform: h ? "translateY(-4px)" : "translateY(0)",
       }}
     >
       <div style={{
@@ -282,7 +283,7 @@ const ServiceTile = ({ title, sub, onClick }: { title: string; sub: string; onCl
         height: "3px",
         background: `linear-gradient(90deg, transparent, ${C.gold}, transparent)`,
         opacity: h ? 1 : 0,
-        transition: "opacity 0.4s",
+        transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
       }} />
       <h3 style={{
         fontFamily: "'Bebas Neue', sans-serif",
@@ -292,8 +293,8 @@ const ServiceTile = ({ title, sub, onClick }: { title: string; sub: string; onCl
         letterSpacing: "2px",
         whiteSpace: "pre-line",
         marginBottom: "12px",
-        transition: "transform 0.4s ease",
-        transform: h ? "translateY(-4px)" : "translateY(0)",
+        transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+        transform: h ? "translateY(-6px)" : "translateY(0)",
       }}>
         {title}
       </h3>
@@ -633,11 +634,11 @@ const ChoiceCard = ({ label, desc, selected, onClick, icon }: {
     border: `2px solid ${selected ? C.gold : C.goldDim}`,
     padding: "24px 20px",
     cursor: "pointer",
-    transition: "all 0.3s ease",
+    transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
     textAlign: "left",
     display: "flex", flexDirection: "column", gap: "8px",
-    boxShadow: selected ? "0 8px 24px rgba(201,169,97,0.2)" : "none",
-    transform: selected ? "translateY(-2px)" : "none",
+    boxShadow: selected ? "0 12px 32px rgba(201,169,97,0.25)" : "0 2px 8px rgba(0,0,0,0.03)",
+    transform: selected ? "translateY(-3px) scale(1.02)" : "translateY(0) scale(1)",
     width: "100%",
   }}>
     <span style={{ fontSize: "24px" }}>{icon}</span>
@@ -747,7 +748,7 @@ const Contact = () => {
 
               {/* Step 0: What do you need? */}
               {step === 0 && (
-                <div key="s0" style={{ animation: "fadeUp 0.5s ease" }}>
+                <div key="s0" style={{ animation: "fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1)" }}>
                   <Tag>Let's Build Something</Tag>
                   <BigText size="clamp(32px, 7vw, 64px)" style={{ marginBottom: "12px" }}>
                     WHAT DO YOU <span style={{ color: C.gold }}>NEED</span>?
@@ -764,7 +765,7 @@ const Contact = () => {
 
               {/* Step 1: What stage? */}
               {step === 1 && (
-                <div key="s1" style={{ animation: "fadeUp 0.5s ease" }}>
+                <div key="s1" style={{ animation: "fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1)" }}>
                   <Tag>About Your Brand</Tag>
                   <BigText size="clamp(32px, 7vw, 64px)" style={{ marginBottom: "12px" }}>
                     WHERE ARE YOU <span style={{ color: C.gold }}>NOW</span>?
@@ -780,7 +781,7 @@ const Contact = () => {
 
               {/* Step 2: Timeline */}
               {step === 2 && (
-                <div key="s2" style={{ animation: "fadeUp 0.5s ease" }}>
+                <div key="s2" style={{ animation: "fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1)" }}>
                   <Tag>Timeline</Tag>
                   <BigText size="clamp(32px, 7vw, 64px)" style={{ marginBottom: "12px" }}>
                     WHEN DO YOU <span style={{ color: C.gold }}>NEED IT</span>?
@@ -796,7 +797,7 @@ const Contact = () => {
 
               {/* Step 3: Budget */}
               {step === 3 && (
-                <div key="s3" style={{ animation: "fadeUp 0.5s ease" }}>
+                <div key="s3" style={{ animation: "fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1)" }}>
                   <Tag>Investment</Tag>
                   <BigText size="clamp(32px, 7vw, 64px)" style={{ marginBottom: "12px" }}>
                     WHAT'S YOUR <span style={{ color: C.gold }}>RANGE</span>?
@@ -813,7 +814,7 @@ const Contact = () => {
 
               {/* Step 4: Contact details */}
               {step === 4 && (
-                <div key="s4" style={{ animation: "fadeUp 0.5s ease" }}>
+                <div key="s4" style={{ animation: "fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1)" }}>
                   <Tag>Almost Done</Tag>
                   <BigText size="clamp(32px, 7vw, 64px)" style={{ marginBottom: "12px" }}>
                     WHO ARE <span style={{ color: C.gold }}>YOU</span>?
@@ -1006,8 +1007,8 @@ const Contact = () => {
 
       <style>{`
         @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          from { opacity: 0; transform: translateY(24px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
         }
       `}</style>
     </div>
@@ -1107,7 +1108,7 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Amiri:wght@400;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
         body { overflow-x: hidden; background: #FAF8F3; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         ::selection { background: rgba(201,169,97,0.3); color: #2C3E37; }
         input, textarea { font-size: 16px !important; }

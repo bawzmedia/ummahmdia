@@ -26,8 +26,8 @@ export const R = ({ children, delay = 0, style = {} }: { children: React.ReactNo
   const [v, setV] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
-    const fallback = setTimeout(() => setV(true), 300);
-    const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setV(true); clearTimeout(fallback); } }, { threshold: 0.1 });
+    const fallback = setTimeout(() => setV(true), 400);
+    const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setV(true); clearTimeout(fallback); } }, { threshold: 0.08 });
     if (ref.current) o.observe(ref.current);
     return () => { clearTimeout(fallback); o.disconnect(); };
   }, []);
@@ -35,8 +35,9 @@ export const R = ({ children, delay = 0, style = {} }: { children: React.ReactNo
     <div ref={ref} style={{
       height: "100%",
       opacity: v ? 1 : 0,
-      transform: v ? "translateY(0)" : "translateY(40px)",
-      transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+      transform: v ? "translateY(0) scale(1)" : "translateY(32px) scale(0.98)",
+      transition: `opacity 1s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+      willChange: "opacity, transform",
       ...style,
     }}>
       {children}
@@ -176,9 +177,9 @@ export const CTA = ({ children, onClick, outline = false }: { children: React.Re
         fontFamily: "'Bebas Neue', sans-serif",
         fontSize: "clamp(14px, 3vw, 16px)", letterSpacing: "3px",
         padding: "14px 36px", cursor: "pointer",
-        transition: "all 0.3s",
-        transform: h ? "translateY(-2px)" : "none",
-        boxShadow: h && !outline ? "0 8px 20px rgba(201,169,97,0.25)" : "none",
+        transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+        transform: h ? "translateY(-3px)" : "translateY(0)",
+        boxShadow: h && !outline ? "0 12px 28px rgba(201,169,97,0.3)" : "0 2px 8px rgba(201,169,97,0.08)",
         whiteSpace: "nowrap",
       }}
     >
@@ -388,8 +389,9 @@ export const FeatureCard = ({ number, title, description }: { number: string; ti
         background: h ? C.white : C.card,
         border: `2px solid ${h ? C.gold : C.goldDim}`,
         padding: "40px 32px",
-        transition: "all 0.4s ease",
-        boxShadow: h ? "0 12px 30px rgba(201,169,97,0.15)" : "none",
+        transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+        boxShadow: h ? "0 16px 40px rgba(201,169,97,0.18)" : "0 2px 10px rgba(0,0,0,0.03)",
+        transform: h ? "translateY(-4px)" : "translateY(0)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -399,7 +401,7 @@ export const FeatureCard = ({ number, title, description }: { number: string; ti
         height: "3px",
         background: `linear-gradient(90deg, transparent, ${C.gold}, transparent)`,
         opacity: h ? 1 : 0,
-        transition: "opacity 0.4s",
+        transition: "opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
       }} />
       <span style={{
         fontFamily: "'Bebas Neue', sans-serif",
