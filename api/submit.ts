@@ -72,9 +72,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Airtable error:", errorData);
-      return res.status(500).json({ error: "Failed to save submission" });
+      const errorText = await response.text();
+      console.error("Airtable error:", response.status, errorText);
+      return res.status(500).json({ error: "Failed to save submission", detail: errorText });
     }
 
     return res.status(200).json({ success: true });
