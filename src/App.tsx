@@ -1217,7 +1217,7 @@ export default function App() {
           .mob-pad { padding-left: 16px !important; padding-right: 16px !important; }
           .nav-logo { height: 44px !important; width: 44px !important; }
           .nav-brand { flex-direction: column !important; gap: 4px !important; min-width: auto !important; align-items: center !important; }
-          .nav-brand-text { font-size: 10px !important; letter-spacing: 3px !important; text-align: center !important; }
+          .nav-brand-text { display: none !important; }
           .nav-bismillah { position: static !important; transform: none !important; text-align: center !important; flex: 1 !important; }
           .nav-bismillah span { font-size: 14px !important; }
         }
