@@ -729,8 +729,7 @@ const ChoiceCard = ({ label, desc, selected, onClick, icon }: {
 );
 
 const Contact = ({ preselectedService = "" }: { preselectedService?: string }) => {
-  const hasPreselection = !!preselectedService;
-  const [step, setStep] = useState(hasPreselection ? 1 : 0);
+  const [step, setStep] = useState(0);
   const [service, setService] = useState(preselectedService);
   const [stage, setStage] = useState("");
   const [timeline, setTimeline] = useState("");
