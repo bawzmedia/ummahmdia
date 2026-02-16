@@ -728,9 +728,10 @@ const ChoiceCard = ({ label, desc, selected, onClick, icon }: {
   </button>
 );
 
-const Contact = () => {
-  const [step, setStep] = useState(0);
-  const [service, setService] = useState("");
+const Contact = ({ preselectedService = "" }: { preselectedService?: string }) => {
+  const hasPreselection = !!preselectedService;
+  const [step, setStep] = useState(hasPreselection ? 1 : 0);
+  const [service, setService] = useState(preselectedService);
   const [stage, setStage] = useState("");
   const [timeline, setTimeline] = useState("");
   const [budget, setBudget] = useState("");
@@ -1142,6 +1143,12 @@ const Footer = ({ setPage }: { setPage: (p: string) => void }) => (
 // ═══════════════════════════════════════════
 export default function App() {
   const [page, setPage] = useState("home");
+  const [preselectedService, setPreselectedService] = useState("");
+
+  const setPageWithService = useCallback((p: string, svc?: string) => {
+    if (svc) setPreselectedService(svc);
+    setPage(p);
+  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -1231,13 +1238,13 @@ export default function App() {
       <Nav page={page} setPage={setPage} />
 
       {page === "home" && <Home setPage={setPage} />}
-      {page === "brand" && <BrandDevelopment setPage={setPage} />}
-      {page === "video" && <VideoMarketing setPage={setPage} />}
-      {page === "ugc" && <UGC setPage={setPage} />}
-      {page === "ai" && <AIEducation setPage={setPage} />}
+      {page === "brand" && <BrandDevelopment setPage={(p: string) => setPageWithService(p, p === "contact" ? "brand" : "")} />}
+      {page === "video" && <VideoMarketing setPage={(p: string) => setPageWithService(p, p === "contact" ? "video" : "")} />}
+      {page === "ugc" && <UGC setPage={(p: string) => setPageWithService(p, p === "contact" ? "ugc" : "")} />}
+      {page === "ai" && <AIEducation setPage={(p: string) => setPageWithService(p, p === "contact" ? "ai" : "")} />}
       {page === "work" && <Work setPage={setPage} />}
       {page === "about" && <About setPage={setPage} />}
-      {page === "contact" && <Contact />}
+      {page === "contact" && <Contact preselectedService={preselectedService} />}
 
       <Footer setPage={setPage} />
     </div>
