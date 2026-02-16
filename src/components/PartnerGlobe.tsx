@@ -9,6 +9,7 @@ export const PARTNERS = [
   { city: "Red Deer", country: "Canada", lat: 52.2681, lng: -113.8112 },
   { city: "Halifax", country: "Canada", lat: 44.6488, lng: -63.5752 },
   { city: "Gujranwala", country: "Pakistan", lat: 32.1877, lng: 74.1945 },
+  { city: "Toba Tek Singh", country: "Pakistan", lat: 30.9709, lng: 72.4826 },
 ];
 
 const COLORS = {
