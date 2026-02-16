@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Globe from "react-globe.gl";
 import { feature } from "topojson-client";
-import { MeshPhongMaterial } from "three";
+import { MeshPhongMaterial, MeshBasicMaterial } from "three";
 
 // ─── Partner locations (add a new partner = add one line) ───
 export const PARTNERS = [
@@ -18,10 +18,9 @@ const COLORS = {
   ring: (t: number) => `rgba(255,212,117,${Math.max(0, 1 - t * 1.1)})`,
 };
 
-const globeMat = new MeshPhongMaterial({
+const globeMat = new MeshBasicMaterial({
   color: COLORS.water,
-  transparent: false,
-  flatShading: false,
+  depthWrite: false,
 });
 
 const filterPolygons = (features: any[]) =>
@@ -182,9 +181,9 @@ const PartnerGlobe = () => {
         atmosphereAltitude={0.18}
         polygonsData={polygons}
         polygonCapColor={() => COLORS.land}
-        polygonSideColor={() => "rgba(26,94,81,0.06)"}
+        polygonSideColor={() => COLORS.land}
         polygonStrokeColor={() => "rgba(0,0,0,0)"}
-        polygonAltitude={0.003}
+        polygonAltitude={0.012}
         htmlElementsData={htmlData}
         htmlLat={(d: any) => d.lat}
         htmlLng={(d: any) => d.lng}
