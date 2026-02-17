@@ -380,7 +380,7 @@ const Home = ({ setPage }: { setPage: (p: string) => void }) => (
     <section style={{ background: C.cream, padding: "0 0 60px 0" }}>
       <R>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 20px" }}>
-          <VideoBlock label="Ummah Media Showreel" playbackId="y701nGndoo00O0112lWauGmIpdQjzJCZa9rIMAseEgL9jg" />
+          <VideoBlock label="Your Showreel — Replace with actual video" aspect="56.25%" />
         </div>
       </R>
     </section>
