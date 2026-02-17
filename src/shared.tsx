@@ -45,49 +45,74 @@ export const R = ({ children, delay = 0, style = {} }: { children: React.ReactNo
   );
 };
 
-// ─── Video placeholder block ───
-export const VideoBlock = ({ label, aspect = "56.25%" }: { label: string; aspect?: string }) => (
-  <div style={{
-    position: "relative",
-    width: "100%",
-    paddingBottom: aspect,
-    background: `linear-gradient(135deg, ${C.greenLight}, ${C.goldLight})`,
-    overflow: "hidden",
-    border: `1px solid ${C.goldDim}`,
-  }}>
+// ─── Video block (Mux player or placeholder) ───
+export const VideoBlock = ({ label, aspect = "56.25%", playbackId }: { label: string; aspect?: string; playbackId?: string }) => {
+  if (playbackId) {
+    return (
+      <div style={{
+        position: "relative", width: "100%",
+        overflow: "hidden", border: `1px solid ${C.goldDim}`,
+        background: "#000",
+      }}>
+        <mux-player
+          playback-id={playbackId}
+          metadata-video-title={label}
+          accent-color={C.gold}
+          style={{
+            width: "100%",
+            aspectRatio: "16/9",
+            display: "block",
+            // @ts-ignore
+            "--controls": "auto",
+          } as React.CSSProperties}
+        />
+      </div>
+    );
+  }
+
+  return (
     <div style={{
-      position: "absolute", inset: 0,
-      display: "flex", alignItems: "center", justifyContent: "center",
-      flexDirection: "column", gap: "12px",
+      position: "relative",
+      width: "100%",
+      paddingBottom: aspect,
+      background: `linear-gradient(135deg, ${C.greenLight}, ${C.goldLight})`,
+      overflow: "hidden",
+      border: `1px solid ${C.goldDim}`,
     }}>
       <div style={{
-        width: "72px", height: "72px", borderRadius: "50%",
-        border: `2px solid ${C.gold}`,
+        position: "absolute", inset: 0,
         display: "flex", alignItems: "center", justifyContent: "center",
-        cursor: "pointer",
+        flexDirection: "column", gap: "12px",
       }}>
         <div style={{
-          width: 0, height: 0,
-          borderTop: "12px solid transparent",
-          borderBottom: "12px solid transparent",
-          borderLeft: `20px solid ${C.gold}`,
-          marginLeft: "4px",
-        }} />
+          width: "72px", height: "72px", borderRadius: "50%",
+          border: `2px solid ${C.gold}`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          cursor: "pointer",
+        }}>
+          <div style={{
+            width: 0, height: 0,
+            borderTop: "12px solid transparent",
+            borderBottom: "12px solid transparent",
+            borderLeft: `20px solid ${C.gold}`,
+            marginLeft: "4px",
+          }} />
+        </div>
+        <span style={{
+          fontFamily: "'Bebas Neue', sans-serif",
+          fontSize: "14px",
+          letterSpacing: "3px",
+          color: C.gold,
+          textTransform: "uppercase",
+        }}>
+          {label}
+        </span>
       </div>
-      <span style={{
-        fontFamily: "'Bebas Neue', sans-serif",
-        fontSize: "14px",
-        letterSpacing: "3px",
-        color: C.gold,
-        textTransform: "uppercase",
-      }}>
-        {label}
-      </span>
+      <div style={{ position: "absolute", top: "16px", left: "16px", width: "24px", height: "24px", borderTop: `2px solid ${C.gold}`, borderLeft: `2px solid ${C.gold}` }} />
+      <div style={{ position: "absolute", bottom: "16px", right: "16px", width: "24px", height: "24px", borderBottom: `2px solid ${C.gold}`, borderRight: `2px solid ${C.gold}` }} />
     </div>
-    <div style={{ position: "absolute", top: "16px", left: "16px", width: "24px", height: "24px", borderTop: `2px solid ${C.gold}`, borderLeft: `2px solid ${C.gold}` }} />
-    <div style={{ position: "absolute", bottom: "16px", right: "16px", width: "24px", height: "24px", borderBottom: `2px solid ${C.gold}`, borderRight: `2px solid ${C.gold}` }} />
-  </div>
-);
+  );
+};
 
 // ─── Image placeholder block ───
 export const ImgBlock = ({ label, h = "400px" }: { label: string; h?: string }) => (
