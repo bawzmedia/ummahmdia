@@ -7,7 +7,8 @@ const AIRTABLE_TABLE = process.env.AIRTABLE_TABLE || "Submissions";
 const SERVICE_MAP: Record<string, string> = {
   brand: "Brand Development",
   video: "Video Marketing",
-  ugc: "UGC Content",
+  social: "Social Media Marketing",
+  ugc: "UGC & Influencer",
   ai: "AI Education",
 };
 
