@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cinzel, Raleway } from "next/font/google";
 import "./globals.css";
+import CinematicNav from "@/components/layout/CinematicNav";
+import Footer from "@/components/layout/Footer";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -30,7 +32,11 @@ export default function RootLayout({
       lang="en"
       className={`${cinzel.variable} ${raleway.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        <CinematicNav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
