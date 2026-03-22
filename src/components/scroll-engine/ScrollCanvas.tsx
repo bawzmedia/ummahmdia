@@ -334,7 +334,11 @@ export default function ScrollCanvas({
 
   // Fallback: reduced motion or failed frame loading
   if (prefersReducedMotion || isFallback) {
-    return <FallbackLayout scenes={scenes} pageId={pageId} />;
+    return (
+      <FallbackLayout scenes={scenes} pageId={pageId}>
+        {children}
+      </FallbackLayout>
+    );
   }
 
   // Loading state
@@ -376,6 +380,8 @@ export default function ScrollCanvas({
           zIndex: 2,
           opacity: showLoop ? 0 : 1,
         }}
+        role="img"
+        aria-label="Cinematic scroll experience — use arrow keys or swipe to navigate"
       />
 
       {/* Text overlays */}

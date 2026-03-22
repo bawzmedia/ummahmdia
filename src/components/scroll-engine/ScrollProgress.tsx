@@ -19,6 +19,11 @@ export default function ScrollProgress({ progress }: ScrollProgressProps) {
     <div
       className="fixed bottom-0 left-0 right-0 z-20 h-[2px]"
       style={{ opacity }}
+      role="progressbar"
+      aria-label="Scroll progress"
+      aria-valuenow={Math.round(progress * 100)}
+      aria-valuemin={0}
+      aria-valuemax={100}
     >
       <div
         className="h-full bg-white/40 transition-[width] duration-100"
