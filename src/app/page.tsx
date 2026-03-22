@@ -2,10 +2,12 @@
 
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import { getPageConfig, type Scene } from '@/lib/scenes';
+import type { ServiceInfo } from '@/lib/services';
 import CinematicLayout from '@/components/layout/CinematicLayout';
 import ServiceHub from '@/components/interactive/ServiceHub';
-import type { ServiceInfo } from '@/lib/services';
+import PageTransition from '@/components/transitions/PageTransition';
 
 const ScrollCanvas = dynamic(
   () => import('@/components/scroll-engine/ScrollCanvas'),
@@ -13,22 +15,35 @@ const ScrollCanvas = dynamic(
 );
 
 export default function HomePage() {
+  const router = useRouter();
   const config = getPageConfig('homepage');
   const [currentScene, setCurrentScene] = useState<Scene | null>(null);
+  const [showHub, setShowHub] = useState(false);
+  const [transitioning, setTransitioning] = useState(false);
+  const [targetRoute, setTargetRoute] = useState('');
 
   const handleSceneChange = useCallback((scene: Scene) => {
     setCurrentScene(scene);
+    if (scene.id === '3.1') {
+      setShowHub(true);
+    }
   }, []);
 
-  // TODO Task 3.x: route to service page on select
-  const handleServiceSelect = useCallback((_service: ServiceInfo) => {
-    // service routing will be wired in a later task
+  const handleServiceSelect = useCallback((service: ServiceInfo) => {
+    setTargetRoute(service.route);
+    setTransitioning(true);
   }, []);
 
-  // TODO Task 3.x: programmatically advance scroll on continue
+  const handleTransitionComplete = useCallback(() => {
+    router.push(targetRoute);
+  }, [router, targetRoute]);
+
   const handleContinueScrolling = useCallback(() => {
-    // will trigger ScrollCanvas to advance to next section
+    setShowHub(false);
   }, []);
+
+  // Suppress unused warning — currentScene used implicitly via showHub
+  void currentScene;
 
   return (
     <CinematicLayout>
@@ -38,13 +53,16 @@ export default function HomePage() {
         totalFrames={config.totalFrames}
         onSceneChange={handleSceneChange}
       >
-        {/* Service Hub — appears at scene 3.1 when interactive === 'hub' */}
         <ServiceHub
-          isVisible={currentScene?.interactive === 'hub'}
+          isVisible={showHub}
           onServiceSelect={handleServiceSelect}
           onContinueScrolling={handleContinueScrolling}
         />
       </ScrollCanvas>
+      <PageTransition
+        isActive={transitioning}
+        onComplete={handleTransitionComplete}
+      />
     </CinematicLayout>
   );
 }
