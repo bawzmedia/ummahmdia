@@ -52,7 +52,7 @@ const MINI_CTA_CONFIG: Record<string, MiniCTAConfig> = {
   },
 };
 
-const CALENDLY_URL = 'https://calendly.com/ummahmedia/discovery';
+const CALENDLY_URL = 'https://calendly.com/ummahmedia/strategy-call';
 
 export default function HomePage() {
   const router = useRouter();
@@ -90,9 +90,9 @@ export default function HomePage() {
   }, []);
 
   const handleBooked = useCallback(() => {
-    // Cinematic outro after booking — navigate to a confirmation or just leave
-    router.push('/');
-  }, [router]);
+    // Phase 5 will handle the cinematic outro
+    console.log('Booking scheduled — cinematic outro to be implemented in Phase 5');
+  }, []);
 
   return (
     <CinematicLayout>
@@ -132,7 +132,8 @@ export default function HomePage() {
             currentScene?.interactive === 'booking'
           }
           heading="Ready to build something that matters?"
-          subheading="Book a free discovery call. Let's see what's possible."
+          subheading="وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ"
+          description="Free 30-minute strategy call. No pressure, no generic pitch. Just an honest conversation about where your business could be."
           calendlyUrl={CALENDLY_URL}
           onBooked={handleBooked}
         />
