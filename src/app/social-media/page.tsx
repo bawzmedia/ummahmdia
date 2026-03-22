@@ -1,17 +1,17 @@
 'use client';
 
 import ServiceFunnelPage from '@/components/ServiceFunnelPage';
-import ScrollableCards from '@/components/interactive/ScrollableCards';
+import InfoCards from '@/components/interactive/InfoCards';
 
-const SERVICES = [
-  { title: 'Revenue-Driven Strategy', description: 'Every social media plan starts with your business goals.' },
-  { title: 'Partnership Development', description: 'Using social media as a networking and partnership tool.' },
-  { title: 'Content That Converts', description: 'Posts designed with conversion in mind.' },
-  { title: 'Community As Currency', description: 'Building communities that trust you enough to buy from you.' },
-  { title: 'Platform-Specific Execution', description: 'Each platform has different rules and different audiences.' },
-  { title: 'Dawah-Integrated Outreach', description: 'Integrating dawah principles into social strategy.' },
-  { title: 'Paid Social Advertising', description: 'Strategic ad campaigns on Meta, TikTok, and LinkedIn.' },
-  { title: 'Analytics & Reporting', description: 'Monthly reports showing revenue, partnerships, leads, cost per acquisition.' },
+const SOCIAL_SERVICES = [
+  { title: 'Revenue-Driven Strategy', description: 'Social strategy aligned with revenue goals, not vanity metrics.', icon: '💰' },
+  { title: 'Partnership Development', description: 'Identifying and securing brand partnerships and collaborations.', icon: '🤝' },
+  { title: 'Content That Converts', description: 'Scroll-stopping content designed for each stage of the buyer journey.', icon: '✨' },
+  { title: 'Community As Currency', description: 'Building engaged communities that drive word-of-mouth and loyalty.', icon: '👥' },
+  { title: 'Platform Execution', description: 'Platform-native strategies for Instagram, TikTok, LinkedIn, YouTube, and more.', icon: '📱' },
+  { title: 'Dawah Outreach', description: 'Digital dawah strategies for Islamic organizations and masjids.', icon: '🕌' },
+  { title: 'Paid Advertising', description: 'Targeted ad campaigns with ROAS tracking and continuous optimization.', icon: '📢' },
+  { title: 'Analytics & Reporting', description: 'Monthly performance reports with actionable insights and strategy adjustments.', icon: '📊' },
 ];
 
 export default function SocialMediaPage() {
@@ -19,7 +19,7 @@ export default function SocialMediaPage() {
     <ServiceFunnelPage
       pageId="social-media"
       interactiveContent={{
-        '3.4': <ScrollableCards items={SERVICES} isVisible />,
+        '3.4': <InfoCards items={SOCIAL_SERVICES} columns={4} isVisible />,
       }}
     />
   );

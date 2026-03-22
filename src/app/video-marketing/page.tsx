@@ -1,22 +1,22 @@
 'use client';
 
 import ServiceFunnelPage from '@/components/ServiceFunnelPage';
-import AccordionDiagram from '@/components/interactive/AccordionDiagram';
-import ScrollableCards from '@/components/interactive/ScrollableCards';
+import InfoAccordion from '@/components/interactive/InfoAccordion';
+import InfoCards from '@/components/interactive/InfoCards';
 
-const FUNNEL_NODES = [
-  { id: 'tofu', title: 'Top of Funnel — Discovery', description: 'Get seen. Stop the scroll. Formats: Instagram Reels, TikTok Videos, YouTube Shorts, Social Media Clips', color: '#22c55e' },
-  { id: 'mofu', title: 'Middle of Funnel — Consideration', description: 'Build trust. Educate. Show expertise. Formats: Explainer Videos, Behind-the-Scenes, Educational Content, Podcast Clips', color: '#eab308' },
-  { id: 'bofu', title: 'Bottom of Funnel — Decision', description: 'Convert. Remove doubt. Formats: Client Testimonials, Case Study Films, Product Demos, Personalized Messages', color: '#ef4444' },
+const FUNNEL_STAGES = [
+  { title: 'TOFU — Awareness', description: 'Short-form hooks, brand films, and viral content designed to stop the scroll and introduce your brand to cold audiences.', icon: '🔝' },
+  { title: 'MOFU — Consideration', description: 'Educational content, behind-the-scenes, case studies, and testimonials that build trust and nurture warm leads.', icon: '🔄' },
+  { title: 'BOFU — Conversion', description: 'Product demos, comparison videos, UGC testimonials, and direct response content engineered to close the sale.', icon: '🎯' },
 ];
 
 const ARSENAL_ITEMS = [
-  { title: 'Brand Films', description: 'Cinematic brand stories that showcase your mission and values.' },
-  { title: 'Short-Form Content', description: "Scroll-stopping videos optimized for each platform's algorithm." },
-  { title: 'Event Coverage', description: 'Multi-camera event production for conferences, fundraisers, and community events.' },
-  { title: 'Documentary Style', description: 'Long-form storytelling that builds deep trust.' },
-  { title: 'Product Videos', description: 'Clean, compelling product showcases designed to remove doubt.' },
-  { title: 'Video Strategy', description: 'Content calendars, platform selection, distribution strategy, and analytics.' },
+  { title: 'Brand Films', description: 'Cinematic storytelling that captures your brand essence and connects emotionally.', icon: '🎬' },
+  { title: 'Short-Form Content', description: "Reels, TikToks, and Shorts optimized for each platform's algorithm.", icon: '📱' },
+  { title: 'Event Coverage', description: 'Professional multi-camera coverage for conferences, launches, and community events.', icon: '🎥' },
+  { title: 'Documentary', description: 'Long-form storytelling that documents journeys, impacts, and transformations.', icon: '🎞️' },
+  { title: 'Product Videos', description: 'Showcase features, demonstrate value, and drive conversions with polished product content.', icon: '📦' },
+  { title: 'Video Strategy', description: 'End-to-end video marketing strategy aligned with your business funnel.', icon: '📋' },
 ];
 
 export default function VideoMarketingPage() {
@@ -24,8 +24,8 @@ export default function VideoMarketingPage() {
     <ServiceFunnelPage
       pageId="video-marketing"
       interactiveContent={{
-        '2.3': <AccordionDiagram nodes={FUNNEL_NODES} isVisible />,
-        '2.5': <ScrollableCards items={ARSENAL_ITEMS} isVisible />,
+        '2.3': <InfoAccordion items={FUNNEL_STAGES} isVisible />,
+        '2.5': <InfoCards items={ARSENAL_ITEMS} columns={3} isVisible />,
       }}
     />
   );

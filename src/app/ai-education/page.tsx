@@ -1,25 +1,25 @@
 'use client';
 
 import ServiceFunnelPage from '@/components/ServiceFunnelPage';
-import AccordionDiagram from '@/components/interactive/AccordionDiagram';
-import ScrollableCards from '@/components/interactive/ScrollableCards';
+import InfoAccordion from '@/components/interactive/InfoAccordion';
+import InfoCards from '@/components/interactive/InfoCards';
 
-const LANDSCAPE_NODES = [
-  { id: 'writing', title: 'Writing & Copywriting', description: 'Generate marketing copy, emails, social posts, blog articles, and proposals. Tools: ChatGPT, Claude, Jasper' },
-  { id: 'image', title: 'Image & Design', description: 'Create graphics, product mockups, social media visuals, and brand assets. Tools: Midjourney, DALL\u00B7E, Canva AI' },
-  { id: 'video', title: 'Video & Audio', description: 'Edit videos, generate voiceovers, create subtitles, produce video concepts. Tools: Runway, ElevenLabs, CapCut AI' },
-  { id: 'automation', title: 'Automation', description: 'Connect apps and automate repetitive tasks. Tools: Make.com, Zapier, n8n' },
-  { id: 'research', title: 'Research & Analysis', description: 'Analyze customer data, research competitors, summarize documents. Tools: ChatGPT, NotebookLM, Perplexity' },
-  { id: 'service', title: 'Customer Service', description: 'Build AI chatbots and assistants for 24/7 support. Tools: Intercom AI, Tidio, Custom GPTs' },
+const AI_LANDSCAPE = [
+  { title: 'AI Writing & Content', description: 'ChatGPT, Claude, Jasper — master AI writing tools for marketing copy, social content, and business communication.', icon: '✍️' },
+  { title: 'AI Image Generation', description: 'Midjourney, DALL-E, Stable Diffusion — create professional visuals, product mockups, and brand imagery.', icon: '🖼️' },
+  { title: 'AI Video Production', description: 'Runway, Pika, Sora — produce and edit video content at 10x the speed of traditional methods.', icon: '🎬' },
+  { title: 'AI Automation', description: 'Zapier, Make, n8n — automate repetitive tasks and build intelligent business workflows.', icon: '⚡' },
+  { title: 'AI Research & Analysis', description: 'Perplexity, NotebookLM — accelerate market research, competitive analysis, and data synthesis.', icon: '🔍' },
+  { title: 'AI Customer Service', description: 'Custom chatbots, voice agents, and support automation that scale your service capacity.', icon: '🤖' },
 ];
 
-const PROGRAM_ITEMS = [
-  { title: 'AI for Business 101', description: 'Beginner course teaching business owners AI fundamentals and practical applications.' },
-  { title: 'Workflow Automation', description: 'Learn to automate tasks using n8n, Zapier, and Make.' },
-  { title: 'AI Marketing Mastery', description: 'Advanced training on AI-powered content creation and optimization.' },
-  { title: 'Build a Custom AI Tool', description: 'We design and build a custom AI tool for your specific business needs.' },
-  { title: 'AI Agent Development', description: 'Build AI agents for sales, customer support, or operations.' },
-  { title: 'AI Training & Workshops', description: 'Hands-on group sessions customized to your team\'s skill level.' },
+const AI_PROGRAMS = [
+  { title: 'AI for Business 101', description: 'Foundation course covering AI fundamentals, tool selection, and implementation strategy for any business.', icon: '🎓' },
+  { title: 'Workflow Automation', description: 'Hands-on workshop building automated workflows that save 12+ hours per week.', icon: '⚙️' },
+  { title: 'AI Marketing Mastery', description: 'Deep dive into AI-powered content creation, SEO, social media, and ad optimization.', icon: '📈' },
+  { title: 'Custom AI Tool Build', description: 'We build a custom AI tool tailored to your specific business needs and workflows.', icon: '🔧' },
+  { title: 'AI Agent Development', description: 'Advanced course on building conversational AI agents for sales, support, and operations.', icon: '🤖' },
+  { title: 'Custom Workshops', description: 'Tailored group training for organizations, masjids, and teams at any skill level.', icon: '👥' },
 ];
 
 export default function AiEducationPage() {
@@ -27,8 +27,8 @@ export default function AiEducationPage() {
     <ServiceFunnelPage
       pageId="ai-education"
       interactiveContent={{
-        '6.3': <AccordionDiagram nodes={LANDSCAPE_NODES} isVisible />,
-        '6.4': <ScrollableCards items={PROGRAM_ITEMS} isVisible />,
+        '6.3': <InfoAccordion items={AI_LANDSCAPE} isVisible />,
+        '6.4': <InfoCards items={AI_PROGRAMS} columns={3} isVisible />,
       }}
     />
   );

@@ -3,36 +3,36 @@
 import ServiceFunnelPage from '@/components/ServiceFunnelPage';
 import ModuleExplorer from '@/components/interactive/ModuleExplorer';
 
-const MODULES = [
+const SMARTSUITE_MODULES = [
   {
     id: 'funnel',
     title: 'Smart Funnel',
-    description: 'A data-driven system that attracts prospects, qualifies them, captures their info, and improves targeting over time.',
-    deliverables: ['Funnel design & architecture', 'Landing pages', 'Lead qualification logic', 'Feedback loops', 'Targeting optimization'],
+    description: 'Intelligent lead capture and qualification system that identifies, scores, and routes prospects automatically.',
+    deliverables: ['Landing page builder', 'Lead scoring engine', 'Email sequence automation', 'A/B testing framework', 'CRM integration'],
   },
   {
     id: 'agent',
     title: 'Smart Agent',
-    description: 'An AI-powered agent that talks to your visitors, answers questions, qualifies leads, and routes them — 24/7.',
-    deliverables: ['Agent design & personality', 'Voiceflow implementation', 'Website integration', 'Lead qualification flows', 'Knowledge base setup'],
+    description: 'AI-powered conversational agent that qualifies leads, answers questions, and books meetings 24/7.',
+    deliverables: ['Custom AI chatbot', 'Knowledge base training', 'Lead qualification flows', 'Calendar integration', 'Handoff to human protocols'],
   },
   {
     id: 'site',
     title: 'Smart Site',
-    description: 'A team of AI agents researches your business, analyzes competition, studies your market, then produces a cinematic scroll-driven website unique to your story.',
-    deliverables: ['AI business analysis', 'Competition research', 'Market landscape mapping', 'Cinematic website production', 'Scroll-driven storytelling'],
+    description: 'A team of AI agents researches your business, analyzes competition, studies your market, then produces a cinematic, story-driven website unique to YOUR business.',
+    deliverables: ['AI business analysis', 'Competition research', 'Market intelligence report', 'Cinematic scroll website', 'Story-driven content architecture'],
   },
   {
     id: 'media',
-    title: 'Smart Project Media',
-    description: 'A content engine that produces videos, visuals, and media assets designed to feed your other SmartSuite systems.',
-    deliverables: ['Video assets', 'Campaign visuals', 'Project storytelling content', 'Sales-support media'],
+    title: 'Smart Media',
+    description: 'AI-enhanced content production pipeline that creates, optimizes, and distributes media across all channels.',
+    deliverables: ['Content calendar AI', 'Image generation pipeline', 'Video editing automation', 'Multi-platform publishing', 'Performance analytics'],
   },
   {
     id: 'portal',
     title: 'Smart Portal',
-    description: 'A client-facing dashboard where your customers can track progress, view metrics, access assets, and manage invoices.',
-    deliverables: ['Portal dashboard', 'Onboarding flow', 'Progress tracking', 'Metrics & reporting', 'Asset library & payments'],
+    description: 'Client-facing dashboard and project management portal for transparent collaboration and real-time reporting.',
+    deliverables: ['Client dashboard', 'Project tracking', 'Asset library', 'Invoice management', 'Real-time analytics'],
   },
 ];
 
@@ -41,7 +41,7 @@ export default function SmartSuitePage() {
     <ServiceFunnelPage
       pageId="smartsuite"
       interactiveContent={{
-        '5.3': <ModuleExplorer modules={MODULES} isVisible />,
+        '5.3': <ModuleExplorer modules={SMARTSUITE_MODULES} isVisible />,
       }}
     />
   );

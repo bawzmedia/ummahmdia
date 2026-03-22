@@ -1,17 +1,17 @@
 'use client';
 
 import ServiceFunnelPage from '@/components/ServiceFunnelPage';
-import ScrollableCards from '@/components/interactive/ScrollableCards';
+import InfoCards from '@/components/interactive/InfoCards';
 
-const COMPONENTS = [
-  { title: 'Marketing Strategy', description: 'The blueprint. Market position, target audience, competitive advantage, growth plan.' },
-  { title: 'Visual Identity & Aesthetics', description: 'Logo, color palette, typography, imagery style, visual direction.' },
-  { title: 'Content SOPs', description: 'Standard operating procedures for content across every platform.' },
-  { title: 'Color Grading & Visual Standards', description: 'Locked-in presets, photo editing standards, visual guidelines.' },
-  { title: 'Platform Strategy', description: 'Platform-specific strategies for Instagram, TikTok, YouTube, LinkedIn, X.' },
-  { title: 'Brand Collateral & Assets', description: 'Business cards, presentations, templates, email signatures.' },
-  { title: 'Messaging & Copywriting', description: 'Brand voice, taglines, bios, about pages, key messages.' },
-  { title: 'Gap Analysis & Audit', description: 'Full brand audit — strategy, visuals, content, systems.' },
+const BRAND_COMPONENTS = [
+  { title: 'Brand Strategy', description: 'Positioning, competitive analysis, audience mapping, and value proposition development.', icon: '🎯' },
+  { title: 'Visual Identity', description: 'Logo, color palette, typography, and comprehensive brand guidelines.', icon: '🎨' },
+  { title: 'Content Strategy', description: 'Content pillars, editorial calendars, and channel-specific strategies.', icon: '📝' },
+  { title: 'Digital Presence', description: 'Website optimization, social media profiles, and digital touchpoints.', icon: '🌐' },
+  { title: 'Marketing Collateral', description: 'Business cards, presentations, brochures, and print materials.', icon: '📋' },
+  { title: 'Brand Voice', description: 'Tone guidelines, messaging frameworks, and communication templates.', icon: '🗣️' },
+  { title: 'SOPs & Systems', description: 'Standard operating procedures for brand consistency across teams.', icon: '⚙️' },
+  { title: 'Analytics Setup', description: 'Tracking, dashboards, and KPI frameworks to measure brand performance.', icon: '📊' },
 ];
 
 export default function BrandDevelopmentPage() {
@@ -19,7 +19,7 @@ export default function BrandDevelopmentPage() {
     <ServiceFunnelPage
       pageId="brand-development"
       interactiveContent={{
-        '1.4': <ScrollableCards items={COMPONENTS} isVisible />,
+        '1.4': <InfoCards items={BRAND_COMPONENTS} columns={4} isVisible />,
       }}
     />
   );
