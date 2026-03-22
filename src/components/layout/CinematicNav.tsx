@@ -77,6 +77,11 @@ export default function CinematicNav() {
           </span>
         </Link>
 
+        {/* Bismillah — centered between logo and nav */}
+        <span className="hidden md:block text-white/50 text-sm font-normal" dir="rtl">
+          بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+        </span>
+
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="/" className={linkClass}>
