@@ -223,23 +223,23 @@ export default function ScrollCanvas({
       const delta =
         Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
 
-      if (delta > 10) {
+      if (delta > 30) {
         const nextSection = currentSectionRef.current + 1;
         if (nextSection < scenes.length) {
           scrollCooldownRef.current = true;
           playSection(nextSection);
           setTimeout(() => {
             scrollCooldownRef.current = false;
-          }, 300);
+          }, 600);
         }
-      } else if (delta < -10) {
+      } else if (delta < -30) {
         const prevSection = currentSectionRef.current - 1;
         if (prevSection >= 0) {
           scrollCooldownRef.current = true;
           playSection(prevSection, true);
           setTimeout(() => {
             scrollCooldownRef.current = false;
-          }, 300);
+          }, 600);
         }
       }
     };
