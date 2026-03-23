@@ -92,8 +92,6 @@ export default function CinematicNav() {
           <div
             ref={dropdownRef}
             className="relative"
-            onMouseEnter={openDropdown}
-            onMouseLeave={closeDropdown}
           >
             <button
               className={`${linkClass} flex items-center gap-1`}
