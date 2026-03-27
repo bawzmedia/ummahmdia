@@ -64,12 +64,12 @@ const PAGE_CONFIGS: Record<PageId, PageConfig> = {
     totalFrames: 500,
     scenes: [
       { id: '1.1', name: 'Entry', startFrame: 1, endFrame: 70, text: 'BRAND DEVELOPMENT', loopId: 'scene-1-1', interactive: null },
-      { id: '1.2', name: 'The Pitch', startFrame: 71, endFrame: 150, text: 'Your marketing general contractor.', loopId: 'scene-1-2', interactive: null },
-      { id: '1.3', name: 'The Model', startFrame: 151, endFrame: 220, text: 'We assess what needs work, build the plan, and execute — videos, photos, content, strategy.', loopId: 'scene-1-3', interactive: null },
-      { id: '1.4', name: 'What You Get', startFrame: 221, endFrame: 300, text: 'Every package includes consulting, custom video, photography, and branded content.', loopId: 'scene-1-4', interactive: 'cards' },
-      { id: '1.5', name: 'The Process', startFrame: 301, endFrame: 370, text: 'Audit & Assess | Build Your Package | Create Content | Launch & Grow', loopId: 'scene-1-5', interactive: null },
+      { id: '1.2', name: 'The Problem', startFrame: 71, endFrame: 150, text: "You know your brand needs work. You just don't know where to start.", loopId: 'scene-1-2', interactive: null },
+      { id: '1.3', name: 'The Solution', startFrame: 151, endFrame: 220, text: "We figure that out for you — then we build it. Strategy, content, and growth. All handled.", loopId: 'scene-1-3', interactive: null },
+      { id: '1.4', name: 'What You Get', startFrame: 221, endFrame: 300, text: "Weekly consulting. Custom video. Professional photography. Branded content. One team.", loopId: 'scene-1-4', interactive: 'cards' },
+      { id: '1.5', name: 'The Process', startFrame: 301, endFrame: 370, text: 'We Audit Your Brand | Build Your Package | Create Your Content | Launch & Grow', loopId: 'scene-1-5', interactive: null },
       { id: '1.6', name: 'The Proof', startFrame: 371, endFrame: 430, text: '23% Revenue lift | 3.5x ROI | 80% Trust from visuals | 100% Gaps filled', loopId: 'scene-1-6', interactive: null },
-      { id: '1.7', name: 'The Close', startFrame: 431, endFrame: 500, text: "LET'S BUILD YOUR BRAND.", loopId: 'scene-1-7', interactive: 'booking' },
+      { id: '1.7', name: 'The Close', startFrame: 431, endFrame: 500, text: "READY TO BUILD YOUR BRAND?", loopId: 'scene-1-7', interactive: 'booking' },
     ],
   },
 
