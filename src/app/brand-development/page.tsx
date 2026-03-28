@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import BrandDevelopmentClient from './client';
 
 export const metadata: Metadata = {
-  title: 'Brand Development — Strategy, Content & Growth | Ummah Media',
+  title: 'Brand Development — Build Your Identity | Ummah Media',
   description:
-    'Not sure where your brand needs work? We audit it, build the plan, and handle everything — weekly strategy, custom video, photography, and branded content.',
+    'Full-spectrum brand development for Muslim businesses and organizations. Strategy, visual identity, content, and systems — everything your brand needs to grow.',
 };
 
 export default function BrandDevelopmentPage() {
