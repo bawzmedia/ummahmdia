@@ -63,109 +63,54 @@ const VideoMarketing = () => (
     {/* ── HERO ── */}
     <ServiceHero
       tag="Video Marketing"
-      titleLine1="STORIES THAT"
-      titleLine2={<><span style={{ color: C.gold }}>MOVE</span> HEARTS</>}
-      subtitle="We don't just make videos. We build video systems — content engineered to reach the right people, at the right stage, with the right message."
+      titleLine1={<>TWO <span style={{ color: C.gold }}>SECONDS</span>.</>}
+      titleLine2="THAT'S ALL YOU GET."
+      subtitle="Every scroll is a decision. Every frame is a chance to earn attention or lose it forever. We engineer videos that stop thumbs and start conversations."
     />
 
     {/* ── DEFINITION ── */}
     <Definition
       term="In Simple Terms"
-      definition="Video marketing is using video strategically to grow your business — not just making something that looks nice, but creating the right type of video for each stage of your customer's journey, from first discovering you to choosing to buy."
+      definition="We don't just make videos that look good. We build video systems — the right content, for the right audience, at the right stage of their decision. Every video has a job. We make sure it does it."
     />
 
     {/* ── FEATURED REEL ── */}
     <section style={{ background: C.cream, padding: "clamp(40px, 8vw, 80px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <R>
-          <VideoBlock label="Video Marketing Showreel — Replace with your video" aspect="56.25%" />
+          <VideoBlock label="Video Marketing Showreel" aspect="56.25%" />
         </R>
       </div>
     </section>
 
-    {/* ── THE VIDEO FUNNEL (unique to this page — the core concept) ── */}
+    {/* ── THE HOOK ── */}
     <section style={{ background: C.lightCream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
-      <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-        <SectionHead tag="The Video Funnel">
-          THE RIGHT VIDEO AT THE <span style={{ color: C.gold }}>RIGHT TIME</span>
-        </SectionHead>
-
-        <R>
-          <p style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "15px", color: C.textMid, lineHeight: 1.7,
-            maxWidth: "750px", marginBottom: "20px",
-          }}>
-            Most businesses make the mistake of creating one video and hoping it does everything. It won't. Different people need different videos depending on where they are in their decision journey.
-          </p>
-        </R>
-        <R delay={0.1}>
-          <Insight
-            emoji={<InsightLightbulbIcon size={24} color={C.gold} />}
-            text="Think of it like a conversation. You wouldn't propose marriage on a first date. Short videos introduce you (TOFU). Medium videos build trust (MOFU). Long videos close the deal (BOFU)."
-          />
-        </R>
-
-        <div className="grid-cards" style={{ marginTop: "48px" }}>
-          <R>
-            <FunnelStage
-              stage="TOP OF FUNNEL"
-              label="DISCOVERY"
-              color={C.green}
-              goal="Goal: Get seen. Stop the scroll. Make people aware your brand exists. This is about reach and first impressions."
-              formats={["Instagram Reels (15-60s)", "TikTok Videos (15-90s)", "YouTube Shorts (< 60s)", "Social Media Clips"]}
-            />
-          </R>
-          <R delay={0.1}>
-            <FunnelStage
-              stage="MIDDLE OF FUNNEL"
-              label="CONSIDERATION"
-              color={C.gold}
-              goal="Goal: Build trust. Educate. Show expertise. The viewer knows you exist — now convince them you're the right choice."
-              formats={["Explainer Videos (3-8 min)", "Behind-the-Scenes", "Educational Content", "Podcast / Interview Clips"]}
-            />
-          </R>
-          <R delay={0.2}>
-            <FunnelStage
-              stage="BOTTOM OF FUNNEL"
-              label="DECISION"
-              color="#C94A4A"
-              goal="Goal: Convert. Remove doubt. Give them the final push. These videos directly drive sales, sign-ups, and bookings."
-              formats={["Client Testimonials", "Case Study Films", "Product Demos", "Personalized Video Messages"]}
-            />
-          </R>
-        </div>
-      </div>
-    </section>
-
-    {/* ── THE HOOK SCIENCE ── */}
-    <section style={{ background: C.cream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <div className="grid-split" style={{ gap: "60px" }}>
           <R>
             <div>
-              <Tag>The First 2 Seconds</Tag>
+              <Tag>The Science of Attention</Tag>
               <BigText size="clamp(28px, 4vw, 52px)" style={{ marginBottom: "24px" }}>
                 YOUR HOOK<br />
                 IS <span style={{ color: C.gold }}>EVERYTHING</span>.
               </BigText>
               <Line />
               <Sub>
-                You have less than 2 seconds to stop someone from scrolling past your video. That's not an opinion — it's what the data shows. The hook is the single most important frame in your entire video.
+                Less than two seconds. That's how long you have before someone decides to watch or scroll past. The hook isn't just important — it's the entire game.
               </Sub>
               <Sub style={{ marginTop: "16px" }}>
-                A strong hook creates an "open loop" — a question or tension that the viewer needs to resolve. We engineer every video to grab attention immediately, then structure the content to maintain retention throughout.
+                A strong hook creates an open loop — a question the brain needs to resolve. We engineer every video to grab attention in the first frame, then structure the content to hold it until the last.
               </Sub>
               <div style={{ marginTop: "28px" }}>
                 <Insight
                   emoji={<InsightTargetIcon size={24} color={C.gold} />}
-                  text={"Great hooks signal value instantly. \"Here's how we doubled our client's revenue\" beats \"Hey everyone, welcome to our video\" every single time."}
+                  text={`"Here's how we doubled our client's revenue in 90 days" will always outperform "Hey everyone, welcome to our channel." Always.`}
                 />
               </div>
             </div>
           </R>
           <R delay={0.15}>
-            <VideoBlock label="Hook Breakdown — Replace with example" aspect="130%" />
+            <VideoBlock label="Hook Breakdown Example" aspect="130%" />
           </R>
         </div>
       </div>
@@ -176,25 +121,75 @@ const VideoMarketing = () => (
       { num: "2 SEC", label: "To capture attention" },
       { num: "91%", label: "Of businesses use video" },
       { num: "87%", label: "Say video increased sales" },
-      { num: "12×", label: "More shares than text+image" },
+      { num: "12×", label: "More shares than text + images" },
     ]} />
 
-
-    {/* ── SERVICES GRID ── */}
+    {/* ── THE VIDEO FUNNEL ── */}
     <section style={{ background: C.lightCream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <SectionHead tag="The Video Funnel">
+          ONE VIDEO WON'T DO <span style={{ color: C.gold }}>EVERYTHING</span>
+        </SectionHead>
+
+        <R>
+          <Sub style={{ maxWidth: "700px", marginBottom: "20px" }}>
+            Most businesses make one video and hope it attracts, educates, and converts. It won't. Different people need different videos at different stages.
+          </Sub>
+        </R>
+        <R delay={0.1}>
+          <Insight
+            emoji={<InsightLightbulbIcon size={24} color={C.gold} />}
+            text="Think of it like dating. Short videos introduce you. Medium videos build trust. Long videos close the deal. You wouldn't propose on a first date."
+          />
+        </R>
+
+        <div className="grid-cards" style={{ marginTop: "48px" }}>
+          <R>
+            <FunnelStage
+              stage="TOP OF FUNNEL"
+              label="DISCOVERY"
+              color={C.green}
+              goal="Get seen. Stop the scroll. Make people aware you exist. This is about reach and first impressions — nothing more."
+              formats={["Instagram Reels", "TikTok Videos", "YouTube Shorts", "Social Clips"]}
+            />
+          </R>
+          <R delay={0.1}>
+            <FunnelStage
+              stage="MIDDLE OF FUNNEL"
+              label="CONSIDERATION"
+              color={C.gold}
+              goal="Build trust. Show expertise. The viewer knows you exist — now convince them you're the right choice."
+              formats={["Explainer Videos", "Behind-the-Scenes", "Educational Content", "Podcast Clips"]}
+            />
+          </R>
+          <R delay={0.2}>
+            <FunnelStage
+              stage="BOTTOM OF FUNNEL"
+              label="DECISION"
+              color="#C94A4A"
+              goal="Convert. Remove doubt. Give them the final push. These videos directly drive sales, sign-ups, and bookings."
+              formats={["Client Testimonials", "Case Study Films", "Product Demos", "Personalized Messages"]}
+            />
+          </R>
+        </div>
+      </div>
+    </section>
+
+    {/* ── WHAT WE CREATE ── */}
+    <section style={{ background: C.cream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionHead tag="What We Create">
-          VIDEO <span style={{ color: C.gold }}>SERVICES</span>
+          SIX WAYS TO TELL <span style={{ color: C.gold }}>YOUR STORY</span>
         </SectionHead>
 
         <div className="grid-cards">
           {[
-            { number: "01", title: "BRAND FILMS", description: "Cinematic brand stories that showcase your mission and values. The kind of video that makes people feel something — and remember you for it." },
-            { number: "02", title: "SHORT-FORM CONTENT", description: "Scroll-stopping videos optimized for each platform's algorithm. Reels, Shorts, TikToks — engineered for reach, retention, and engagement." },
-            { number: "03", title: "EVENT COVERAGE", description: "Multi-camera event production for conferences, fundraisers, and community events. Professional documentation that extends your event's impact." },
-            { number: "04", title: "DOCUMENTARY STYLE", description: "Long-form storytelling that builds deep trust — community stories, organizational profiles, and impact films that educate and inspire." },
-            { number: "05", title: "PRODUCT VIDEOS", description: "Clean, compelling product showcases designed to remove doubt and drive purchase decisions. Features, benefits, and social proof combined." },
-            { number: "06", title: "VIDEO STRATEGY", description: "The plan behind the production — content calendars, platform selection, distribution strategy, and analytics. We build the system, not just the video." },
+            { number: "01", title: "BRAND FILMS", description: "Cinematic stories that show who you are and why it matters. The kind of video people watch twice — and share with the people they care about." },
+            { number: "02", title: "SHORT-FORM CONTENT", description: "Scroll-stopping videos engineered for each platform's algorithm. Reels. Shorts. TikToks. Built for reach, retention, and the replay button." },
+            { number: "03", title: "EVENT COVERAGE", description: "Multi-camera production for conferences, fundraisers, and community events. Your event happened once — we make sure its impact lasts." },
+            { number: "04", title: "DOCUMENTARY STYLE", description: "Long-form stories that build deep trust. Community profiles, organizational impact films, and narratives that move hearts and open wallets." },
+            { number: "05", title: "PRODUCT VIDEOS", description: "Clean, compelling showcases that remove doubt and drive decisions. Features, benefits, and social proof — combined in under 60 seconds." },
+            { number: "06", title: "VIDEO STRATEGY", description: "The system behind the production. Content calendars, platform selection, distribution planning, and performance analytics. We build the engine, not just the video." },
           ].map((item, i) => (
             <R key={i} delay={i * 0.08}>
               <FeatureCard {...item} />
@@ -205,21 +200,27 @@ const VideoMarketing = () => (
     </section>
 
     {/* ── PROCESS ── */}
-    <section style={{ background: C.cream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
+    <section style={{ background: C.lightCream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         <SectionHead tag="Our Process">
           FROM CONCEPT TO <span style={{ color: C.gold }}>SCREEN</span>
         </SectionHead>
 
-        <StepItem step="01" title="PRE-PRODUCTION" desc="We start with strategy — not cameras. Creative brief, scripting, storyboarding, location scouting, and a detailed production plan. Every second of your video is mapped out before we press record." />
-        <StepItem step="02" title="PRODUCTION" desc="Professional crew, cinema-grade equipment, and directed shoots. We control lighting, audio, framing, and performance to capture exactly what your story needs." />
-        <StepItem step="03" title="POST-PRODUCTION" desc="This is where the magic happens. Expert editing, color grading, motion graphics, sound design, and music selection — every frame polished to a professional standard." />
-        <StepItem step="04" title="OPTIMIZE & DISTRIBUTE" desc="We don't just hand you a file. We export optimized versions for every platform, design thumbnails, write captions, and plan your release strategy to maximize reach and impact." isLast />
+        <R>
+          <Sub style={{ maxWidth: "700px", marginBottom: "48px" }}>
+            We don't start with cameras. We start with strategy. Every second of your video is mapped before we press record.
+          </Sub>
+        </R>
+
+        <StepItem step="01" title="PRE-PRODUCTION" desc="Creative brief. Script. Storyboard. Location scout. Shot list. We plan every frame before a single camera turns on — because the best videos are built in pre-production, not saved in editing." />
+        <StepItem step="02" title="PRODUCTION" desc="Professional crew, cinema-grade equipment, and directed shoots. Lighting, audio, framing, performance — all controlled to capture exactly what your story needs." />
+        <StepItem step="03" title="POST-PRODUCTION" desc="Expert editing, color grading, motion graphics, sound design, and music. This is where good footage becomes a great video. Every frame polished to a professional standard." />
+        <StepItem step="04" title="OPTIMIZE & DISTRIBUTE" desc="We don't hand you a file and disappear. Optimized exports for every platform, custom thumbnails, captions, and a release strategy to maximize reach." isLast />
       </div>
     </section>
 
     {/* ── PORTFOLIO ── */}
-    <section style={{ background: C.lightCream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
+    <section style={{ background: C.cream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionHead tag="Recent Work">
           FEATURED <span style={{ color: C.gold }}>PROJECTS</span>
@@ -229,17 +230,17 @@ const VideoMarketing = () => (
           <R><VideoBlock label="Featured Video Project" aspect="56.25%" /></R>
         </div>
         <div className="grid-2" style={{ marginTop: "4px" }}>
-          <R><ImgBlock label="Brand Film — Thumbnail" h="clamp(250px, 40vw, 400px)" /></R>
-          <R delay={0.1}><ImgBlock label="Event Coverage — Thumbnail" h="clamp(250px, 40vw, 400px)" /></R>
+          <R><ImgBlock label="Brand Film" h="clamp(250px, 40vw, 400px)" /></R>
+          <R delay={0.1}><ImgBlock label="Event Coverage" h="clamp(250px, 40vw, 400px)" /></R>
         </div>
       </div>
     </section>
 
     {/* ── CTA ── */}
     <BottomCTA
-      title="READY TO TELL YOUR"
-      highlight="STORY?"
-      subtitle="Let's create video content engineered for impact — from the first frame to the final conversion."
+      title="YOUR STORY IS WORTH"
+      highlight="TELLING."
+      subtitle="Let's build video content engineered for impact — from the first frame to the final conversion."
       buttonText="START YOUR PROJECT"
       buttonHref="/contact?service=video"
     />

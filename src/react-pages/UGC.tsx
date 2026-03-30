@@ -54,22 +54,22 @@ const UGC = () => (
     {/* ── HERO ── */}
     <ServiceHero
       tag="UGC & Influencer Agency"
-      titleLine1="REAL PEOPLE."
-      titleLine2={<><span style={{ color: C.gold }}>REAL</span> INFLUENCE.</>}
-      subtitle="UGC content and a full Muslim influencer agency — we connect brands with authentic creators from the Ummah who are specialists in their fields and drive real results."
+      titleLine1={<>YOUR AD <span style={{ color: C.gold }}>LOOKS</span></>}
+      titleLine2="LIKE AN AD."
+      subtitle="That's why it's not working. People scroll past polished. They stop for real. We create authentic content from real voices — and connect brands with Muslim creators who move product."
     />
 
     {/* ── DEFINITION ── */}
     <Definition
       term="In Simple Terms"
-      definition="We run two things under one roof. First: UGC content — real people creating authentic content for your brand that converts better than any ad. Second: an influencer agency — a curated roster of Muslim creators and specialists who partner with businesses to promote products and services they genuinely believe in."
+      definition="Real people create content for your brand that doesn't feel like marketing. And our influencer agency matches you with Muslim creators who have real audiences and real authority in their niche."
     />
 
     {/* ── FEATURED REEL ── */}
     <section style={{ background: C.cream, padding: "clamp(40px, 8vw, 80px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <R>
-          <VideoBlock label="UGC & Influencer Showcase — Replace with your video" aspect="56.25%" />
+          <VideoBlock label="UGC & Influencer Showcase" aspect="56.25%" />
         </R>
       </div>
     </section>
@@ -82,21 +82,21 @@ const UGC = () => (
             <div>
               <Tag>The Psychology</Tag>
               <BigText size="clamp(28px, 4vw, 52px)" style={{ marginBottom: "24px" }}>
-                PEOPLE TRUST<br />
-                <span style={{ color: C.gold }}>PEOPLE</span>.<br />
-                NOT BRANDS.
+                YOUR BRAIN<br />
+                <span style={{ color: C.gold }}>KNOWS</span><br />
+                THE DIFFERENCE.
               </BigText>
               <Line />
               <Sub>
-                79% of consumers say user-generated content directly impacts their purchase decisions. When a real person — someone your audience recognizes and trusts — recommends your product, it bypasses the brain's ad filter entirely.
+                When a brand says it's great, your brain files it under "advertising." When a person you trust says it's great, your brain files it under "recommendation." Same product. Completely different response.
               </Sub>
               <Sub style={{ marginTop: "16px" }}>
-                That's why we built both a UGC production system and a full influencer agency. UGC gives you the content. Our influencer roster gives you the reach. Together, they give you conversions.
+                That's the science behind UGC. And it's why we built both a content production system and a full influencer agency. The content makes people believe. The creators make people buy.
               </Sub>
               <div style={{ marginTop: "28px" }}>
                 <Insight
                   emoji={<InsightBrainIcon size={24} color={C.gold} />}
-                  text="The brain processes UGC and influencer recommendations in its 'trust' network — the same circuitry as personal recommendations from friends. Ads go through the 'skepticism' filter. That's the difference."
+                  text="UGC activates the brain's trust network — the same circuitry as a personal recommendation from a friend. Ads activate the skepticism filter. That's the difference."
                 />
               </div>
             </div>
@@ -121,38 +121,33 @@ const UGC = () => (
       { num: "91%", label: "Higher view rates on TikTok" },
     ]} />
 
-
     {/* ── THE INFLUENCER AGENCY ── */}
     <section style={{ background: C.cream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionHead tag="The Influencer Agency">
-          MUSLIM CREATORS. <span style={{ color: C.gold }}>CURATED</span>.
+          THE UMMAH HAS <span style={{ color: C.gold }}>INFLUENCE</span>.
         </SectionHead>
 
         <R>
-          <p style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "15px", color: C.textMid, lineHeight: 1.7,
-            maxWidth: "750px", marginBottom: "20px",
-          }}>
-            We're building the first Muslim influencer agency in Edmonton — a curated roster of creators from the Ummah who are specialists in their fields. Whether it's fitness, food, tech, fashion, business, or lifestyle — our creators are authentic voices with real audiences.
-          </p>
+          <Sub style={{ maxWidth: "750px", marginBottom: "20px" }}>
+            We're building the first Muslim influencer agency in Edmonton. A curated roster of creators who are specialists in their fields — fitness, food, tech, fashion, business, lifestyle. Real audiences. Real authority. Real results.
+          </Sub>
         </R>
         <R delay={0.1}>
           <Insight
             emoji={<InsightPuzzleIcon size={24} color={C.gold} />}
-            text="For businesses: we match you with the right creators for your brand. For creators: we get you paid partnerships with businesses that align with your values. Everyone wins."
+            text="For businesses: we match you with the right creator. For creators: we get you paid partnerships that align with your values. Both sides win."
           />
         </R>
 
         <div className="grid-cards" style={{ marginTop: "48px" }}>
           {[
-            { number: "01", title: "CURATED CREATOR ROSTER", description: "A vetted network of Muslim influencers across Edmonton and Canada — each with a real audience, real engagement, and real expertise in their niche. Not bought followers. Real influence." },
-            { number: "02", title: "BRAND-CREATOR MATCHING", description: "We don't just connect any creator with any brand. We match based on audience overlap, values alignment, content style, and campaign goals. The right voice for the right message." },
-            { number: "03", title: "CAMPAIGN MANAGEMENT", description: "End-to-end campaign management — creative briefs, contract negotiation, content review, posting schedules, and performance reporting. We handle the logistics so both sides can focus on creating." },
-            { number: "04", title: "CREATOR DEVELOPMENT", description: "We help Muslim creators grow — content strategy, brand positioning, rate negotiations, and portfolio building. If you're a creator in the Ummah, we want to hear from you." },
-            { number: "05", title: "MULTI-PLATFORM CAMPAIGNS", description: "Instagram, TikTok, YouTube, X, LinkedIn — we plan campaigns across the platforms where your audience actually lives, with content optimized for each platform's algorithm." },
-            { number: "06", title: "PERFORMANCE & ROI", description: "Every campaign is measured against real business outcomes — not just impressions. Sales attributed, leads generated, engagement rates, and ROAS. We prove the value." },
+            { number: "01", title: "CURATED ROSTER", description: "Vetted Muslim influencers across Edmonton and Canada. Real engagement, real expertise, real audiences — not purchased followers." },
+            { number: "02", title: "BRAND-CREATOR MATCHING", description: "We don't just connect anyone with anyone. We match based on audience overlap, values alignment, and campaign goals. The right voice for the right message." },
+            { number: "03", title: "CAMPAIGN MANAGEMENT", description: "End-to-end. Creative briefs, contracts, content review, posting schedules, performance reporting. We handle the logistics so both sides focus on creating." },
+            { number: "04", title: "CREATOR DEVELOPMENT", description: "We help Muslim creators grow — content strategy, brand positioning, rate negotiations, portfolio building. If you're a creator in the Ummah, we want to hear from you." },
+            { number: "05", title: "MULTI-PLATFORM CAMPAIGNS", description: "Instagram, TikTok, YouTube, X, LinkedIn. We plan across the platforms where your audience actually lives, optimized for each algorithm." },
+            { number: "06", title: "PERFORMANCE & ROI", description: "Every campaign measured against real business outcomes. Sales attributed. Leads generated. ROAS calculated. We prove the value — not just count impressions." },
           ].map((item, i) => (
             <R key={i} delay={i * 0.08}>
               <FeatureCard {...item} />
@@ -166,26 +161,22 @@ const UGC = () => (
     <section style={{ background: C.lightCream, padding: "clamp(60px, 12vw, 120px) 20px" }}>
       <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <SectionHead tag="UGC Content">
-          FORMATS THAT <span style={{ color: C.gold }}>CONVERT</span>
+          FIVE FORMATS THAT <span style={{ color: C.gold }}>CONVERT</span>
         </SectionHead>
 
         <R>
-          <p style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "15px", color: C.textMid, lineHeight: 1.7,
-            maxWidth: "750px", marginBottom: "48px",
-          }}>
-            Beyond the influencer partnerships, we produce UGC content at scale — real people creating ad-ready content for your brand. These are the formats that consistently outperform everything else.
-          </p>
+          <Sub style={{ maxWidth: "750px", marginBottom: "48px" }}>
+            These are the formats that consistently outperform studio-produced ads. Not because they're cheaper. Because they're more believable.
+          </Sub>
         </R>
 
         <div className="grid-cards-sm">
           {[
-            { icon: <ProblemSolutionIcon size={32} />, title: "PROBLEM → SOLUTION", description: "Start with a pain point, reveal the solution. The most powerful UGC format because it mirrors the viewer's own thought process.", bestFor: "Products that solve clear problems" },
-            { icon: <TestimonialIcon size={32} />, title: "TESTIMONIAL", description: "Real customers sharing genuine experiences. Unscripted authenticity is what makes this convert — you can't fake real satisfaction.", bestFor: "Services & high-trust purchases" },
-            { icon: <UnboxingIcon size={32} />, title: "UNBOXING / FIRST LOOK", description: "The excitement of receiving and trying something for the first time. Viewers experience the product vicariously through someone they trust.", bestFor: "Physical products & e-commerce" },
-            { icon: <HowToIcon size={32} />, title: "HOW-TO / TUTORIAL", description: "Real users demonstrating your product in their daily life. Builds credibility through demonstrated knowledge, not scripted claims.", bestFor: "Products with learning curves" },
-            { icon: <DayInLifeIcon size={32} />, title: "DAY-IN-THE-LIFE", description: "Lifestyle content where your brand appears naturally in someone's routine. Not the focus — part of a life the viewer aspires to.", bestFor: "Lifestyle brands & recurring purchases" },
+            { icon: <ProblemSolutionIcon size={32} />, title: "PROBLEM → SOLUTION", description: "Start with the pain point. Reveal the fix. The most powerful format because it mirrors how people actually think.", bestFor: "Products that solve clear problems" },
+            { icon: <TestimonialIcon size={32} />, title: "TESTIMONIAL", description: "Real customers. Genuine experience. Unscripted satisfaction. You can't fake the look on someone's face when something actually works.", bestFor: "Services & high-trust purchases" },
+            { icon: <UnboxingIcon size={32} />, title: "UNBOXING / FIRST LOOK", description: "The excitement of receiving something new. Viewers experience the product through someone they trust before they buy it themselves.", bestFor: "Physical products & e-commerce" },
+            { icon: <HowToIcon size={32} />, title: "HOW-TO / TUTORIAL", description: "Real users showing your product in real life. Credibility through demonstration — not scripted claims.", bestFor: "Products with learning curves" },
+            { icon: <DayInLifeIcon size={32} />, title: "DAY-IN-THE-LIFE", description: "Your brand appears naturally in someone's routine. Not the focus — part of a life the viewer wants.", bestFor: "Lifestyle brands & subscriptions" },
           ].map((item, i) => (
             <R key={i} delay={i * 0.08}>
               <FormatCard {...item} />
@@ -202,10 +193,10 @@ const UGC = () => (
           FROM BRIEF TO <span style={{ color: C.gold }}>RESULTS</span>
         </SectionHead>
 
-        <StepItem step="01" title="DISCOVERY & MATCHING" desc="We learn your brand, your audience, and your goals. Then we match you with the right creators from our roster — or source new UGC creators specifically for your campaign." />
-        <StepItem step="02" title="STRATEGY & BRIEFING" desc="Creative briefs, talking points, and campaign frameworks. Enough guidance to hit key messages, enough freedom for creators to sound like themselves." />
-        <StepItem step="03" title="PRODUCTION & REVIEW" desc="Creators produce content in their natural environment. We review, give feedback, and ensure quality — while keeping the authentic feel that makes this work." />
-        <StepItem step="04" title="LAUNCH & OPTIMIZE" desc="Content goes live across platforms — organic posts, paid ads, or both. We track performance, optimize in real-time, and scale what's working." isLast />
+        <StepItem step="01" title="DISCOVERY & MATCHING" desc="We learn your brand, your audience, your goals. Then we match you with the right creators from our roster — or source new UGC creators specifically for your campaign." />
+        <StepItem step="02" title="STRATEGY & BRIEFING" desc="Creative briefs, talking points, campaign frameworks. Enough guidance to hit your message. Enough freedom for creators to sound like themselves." />
+        <StepItem step="03" title="PRODUCTION & REVIEW" desc="Creators produce content in their natural environment. We review, refine, and ensure quality — while keeping the authentic feel that makes this work." />
+        <StepItem step="04" title="LAUNCH & OPTIMIZE" desc="Content goes live — organic, paid, or both. We track performance, optimize in real-time, and scale what's working." isLast />
       </div>
     </section>
 
@@ -217,12 +208,12 @@ const UGC = () => (
       <R>
         <Tag>For Creators</Tag>
         <BigText size="clamp(28px, 6vw, 64px)" style={{ marginBottom: "20px" }}>
-          ARE YOU A MUSLIM <span style={{ color: C.gold }}>CREATOR</span>?
+          YOU CREATE. WE <span style={{ color: C.gold }}>CONNECT</span>.
         </BigText>
       </R>
       <R delay={0.1}>
         <Sub style={{ margin: "0 auto 16px", textAlign: "center", maxWidth: "560px" }}>
-          If you're a Muslim content creator, influencer, or specialist with a real audience — we want to connect you with paid brand partnerships that align with your values. Join our roster.
+          Muslim content creator with a real audience? We want to connect you with paid brand partnerships that align with your values. Join our roster.
         </Sub>
       </R>
       <R delay={0.2}>
@@ -232,9 +223,9 @@ const UGC = () => (
 
     {/* ── CTA ── */}
     <BottomCTA
-      title="LET REAL VOICES"
+      title="LET REAL PEOPLE"
       highlight="SELL."
-      subtitle="UGC content and influencer partnerships — the most trusted form of marketing, powered by the Ummah."
+      subtitle="Polished ads get scrolled past. Real voices get listened to. Let's put yours to work."
       buttonText="GET STARTED"
       buttonHref="/contact?service=ugc"
     />
