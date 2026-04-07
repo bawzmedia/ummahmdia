@@ -163,6 +163,18 @@ const Nav = ({ currentPath = "/" }: { currentPath?: string }) => {
           <a href="/work" style={navLinkStyle(currentPath === "/work")}>Work</a>
           <a href="/about" style={navLinkStyle(currentPath === "/about")}>About</a>
           <a href="/contact" style={navLinkStyle(currentPath === "/contact")}>Contact</a>
+          <a href="/training" style={{
+            ...navLinkStyle(currentPath === "/training"),
+            color: currentPath === "/training" ? C.textDark : C.gold,
+            background: currentPath === "/training" ? C.gold : "transparent",
+            border: `1px solid ${C.gold}`,
+            padding: "6px 14px",
+            letterSpacing: "2px",
+            transition: "background 0.3s, color 0.3s",
+          }}
+            onMouseEnter={e => { (e.currentTarget).style.background = C.gold; (e.currentTarget).style.color = C.textDark; }}
+            onMouseLeave={e => { if (currentPath !== "/training") { (e.currentTarget).style.background = "transparent"; (e.currentTarget).style.color = C.gold; } }}
+          >Training</a>
         </div>
 
         {/* Mobile hamburger */}
@@ -224,6 +236,17 @@ const Nav = ({ currentPath = "/" }: { currentPath?: string }) => {
             textAlign: "left", padding: 0, textDecoration: "none",
           }}>
             Contact
+          </a>
+          <a href="/training" style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: "28px", letterSpacing: "3px",
+            color: C.gold,
+            textAlign: "left", padding: "6px 14px",
+            textDecoration: "none",
+            border: `1px solid ${C.gold}`,
+            alignSelf: "flex-start",
+          }}>
+            Training
           </a>
         </div>
       )}
