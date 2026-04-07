@@ -165,6 +165,287 @@ const FAQItem = ({ question, answer, index }: { question: string; answer: string
   );
 };
 
+// ─── Input field helper ───
+const inputStyle = (focused: boolean): React.CSSProperties => ({
+  width: "100%",
+  boxSizing: "border-box",
+  background: "#FFFFFF",
+  border: `2px solid ${focused ? C.gold : "rgba(201,169,97,0.15)"}`,
+  padding: "14px 16px",
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: "15px",
+  color: C.textDark,
+  outline: "none",
+  transition: "border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+  borderRadius: 0,
+});
+
+const labelStyle: React.CSSProperties = {
+  fontFamily: "'Bebas Neue', sans-serif",
+  fontSize: "14px",
+  letterSpacing: "2px",
+  color: C.textDark,
+  display: "block",
+  marginBottom: "8px",
+};
+
+// ─── Apply section ───
+const ApplySection = () => {
+  const [fields, setFields] = useState({ name: "", email: "", phone: "", motivation: "", niche: "" });
+  const [focused, setFocused] = useState<Record<string, boolean>>({});
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const set = (key: string, value: string) =>
+    setFields(prev => ({ ...prev, [key]: value }));
+
+  const focusOn = (key: string) => setFocused(prev => ({ ...prev, [key]: true }));
+  const focusOff = (key: string) => setFocused(prev => ({ ...prev, [key]: false }));
+
+  const validate = (): string => {
+    if (!fields.name.trim()) return "Please enter your full name.";
+    if (!fields.email.trim()) return "Please enter your email.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) return "Please enter a valid email address.";
+    if (!fields.phone.trim()) return "Please enter your phone number.";
+    if (!fields.motivation.trim()) return "Please tell us why you want to join this program.";
+    return "";
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationError = validate();
+    if (validationError) { setError(validationError); return; }
+    setError("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/training-apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fields.name.trim(),
+          email: fields.email.trim(),
+          phone: fields.phone.trim(),
+          motivation: fields.motivation.trim(),
+          niche: fields.niche.trim(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+      } else {
+        setSuccess(true);
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <section
+      id="apply"
+      style={{
+        background: C.cream,
+        padding: "clamp(80px, 14vw, 120px) 24px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <IslamicPattern opacity={0.025} />
+      <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <SectionHead tag="APPLY">
+          JOIN THE <span style={{ color: C.gold }}>FOUNDING COHORT</span>
+        </SectionHead>
+
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+          {success ? (
+            <R>
+              <div style={{
+                background: C.white,
+                border: `2px solid ${C.gold}`,
+                padding: "48px 40px",
+                textAlign: "center",
+              }}>
+                <div style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "50%",
+                  border: `2px solid ${C.gold}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 24px",
+                }}>
+                  <span style={{ color: C.gold, fontSize: "22px", lineHeight: 1 }}>&#10003;</span>
+                </div>
+                <h3 style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontSize: "clamp(28px, 6vw, 40px)",
+                  letterSpacing: "2px",
+                  color: C.textDark,
+                  marginBottom: "16px",
+                }}>
+                  APPLICATION RECEIVED
+                </h3>
+                <p style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "15px",
+                  color: C.textMid,
+                  lineHeight: 1.7,
+                  maxWidth: "400px",
+                  margin: "0 auto",
+                }}>
+                  Thank you for applying to the founding cohort. We review every application personally and will be in touch within 48 hours.
+                </p>
+              </div>
+            </R>
+          ) : (
+            <R delay={0.1}>
+              <form onSubmit={handleSubmit} noValidate>
+                <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                  {/* Full name */}
+                  <div>
+                    <label style={labelStyle}>
+                      FULL NAME <span style={{ color: C.gold }}>*</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={fields.name}
+                      onChange={e => set("name", e.target.value)}
+                      onFocus={() => focusOn("name")}
+                      onBlur={() => focusOff("name")}
+                      placeholder="Ahmed Al-Rashid"
+                      required
+                      style={inputStyle(!!focused["name"])}
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label style={labelStyle}>
+                      EMAIL ADDRESS <span style={{ color: C.gold }}>*</span>
+                    </label>
+                    <input
+                      type="email"
+                      value={fields.email}
+                      onChange={e => set("email", e.target.value)}
+                      onFocus={() => focusOn("email")}
+                      onBlur={() => focusOff("email")}
+                      placeholder="you@example.com"
+                      required
+                      style={inputStyle(!!focused["email"])}
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label style={labelStyle}>
+                      PHONE NUMBER <span style={{ color: C.gold }}>*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      value={fields.phone}
+                      onChange={e => set("phone", e.target.value)}
+                      onFocus={() => focusOn("phone")}
+                      onBlur={() => focusOff("phone")}
+                      placeholder="+1 (780) 555-0100"
+                      required
+                      style={inputStyle(!!focused["phone"])}
+                    />
+                  </div>
+
+                  {/* Motivation */}
+                  <div>
+                    <label style={labelStyle}>
+                      WHY DO YOU WANT TO JOIN THIS PROGRAM? <span style={{ color: C.gold }}>*</span>
+                    </label>
+                    <textarea
+                      value={fields.motivation}
+                      onChange={e => set("motivation", e.target.value)}
+                      onFocus={() => focusOn("motivation")}
+                      onBlur={() => focusOff("motivation")}
+                      placeholder="Tell us what brought you here and what you hope to build..."
+                      required
+                      rows={5}
+                      style={{
+                        ...inputStyle(!!focused["motivation"]),
+                        resize: "vertical",
+                        minHeight: "120px",
+                      }}
+                    />
+                  </div>
+
+                  {/* Niche */}
+                  <div>
+                    <label style={{ ...labelStyle, color: C.textMid }}>
+                      WHAT INDUSTRY ARE YOU INTERESTED IN SERVING?{" "}
+                      <span style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontSize: "11px",
+                        letterSpacing: "1px",
+                        color: C.textLight,
+                        textTransform: "uppercase",
+                      }}>
+                        (Optional)
+                      </span>
+                    </label>
+                    <input
+                      type="text"
+                      value={fields.niche}
+                      onChange={e => set("niche", e.target.value)}
+                      onFocus={() => focusOn("niche")}
+                      onBlur={() => focusOff("niche")}
+                      placeholder="e.g. Halal food, Islamic schools, Muslim-owned restaurants..."
+                      style={inputStyle(!!focused["niche"])}
+                    />
+                  </div>
+
+                  {/* Error message */}
+                  {error && (
+                    <div style={{
+                      background: "rgba(220,38,38,0.06)",
+                      border: "1px solid rgba(220,38,38,0.25)",
+                      padding: "14px 16px",
+                    }}>
+                      <p style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontSize: "14px",
+                        color: "#B91C1C",
+                        margin: 0,
+                        lineHeight: 1.5,
+                      }}>
+                        {error}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Submit */}
+                  <div>
+                    <CTA onClick={undefined}>
+                      {loading ? "SUBMITTING..." : "SUBMIT APPLICATION"}
+                    </CTA>
+                    <p style={{
+                      fontFamily: "'DM Sans', sans-serif",
+                      fontSize: "12px",
+                      color: C.textLight,
+                      marginTop: "14px",
+                      lineHeight: 1.5,
+                    }}>
+                      Limited to 10 seats. We review every application personally and respond within 48 hours.
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </R>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ─── Main component ───
 const Training = () => {
   const scrollToApply = () => {
@@ -642,7 +923,8 @@ const Training = () => {
         </div>
       </section>
 
-      {/* Apply form — added in Task 4 */}
+      {/* ── APPLY FORM ── */}
+      <ApplySection />
 
       {/* ── BOTTOM CTA ── */}
       <BottomCTA
